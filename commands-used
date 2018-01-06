@@ -1,0 +1,62 @@
+cd learning-c
+cd ch-1/
+ls
+la
+ll
+./wordcount << EOF
+./wordcount < input
+vim array-intro
+vim array-intro.c
+vi ~/.vimrc
+mv input wordcount-input
+cp array-intro.c array-input
+cc array-intro.c -o array-intro
+./array-intro < array-input
+man cat
+cat -A array-input
+cat -vt array-input
+cat -E tmp | tr " " "*" | tr "\t" "&" 
+cat -E array-input | tr " " "*" | tr "\t" "&" 
+history > commands-used 
+. ./run/updateall
+cc longest-line.c -g -o longest-line
+cc longest-line.c -ggdb -o longest-line
+gdb <executable name> example - gdb longest-line
+run <arg list>
+in gdb ->   run < input-longest-line
+            info proc mappings
+locale
+update-locale
+ch-1
+echo $LANG
+echo STERM
+echo -e '\xe2\x82\xac'
+echo "~" -n | xxd
+echo "~" -n | xxd -b
+
+readelf -l longest-line > elf.txt
+readelf -a longest-line > elf.txt
+objdump -S hello > disassembly.txt
+objdump -D hello > disassembly.txt
+
+----------------
+gdb reference:
+----------------
+https://stackoverflow.com/questions/2876357/determine-the-line-of-c-code-that-causes-a-segmentation-fault
+https://stackoverflow.com/questions/5691193/gdb-listing-all-mapped-memory-regions-for-a-crashed-process
+
+----------------
+locale/unicode reference:
+----------------
+Mystery solved: can't use ·(\u00B7) to replace the space as it is of length 2
+<code>
+printf("length of · = %ld\n", strlen(twobyte));
+printf("length of * = %ld\n", strlen(onebyte));
+<console output>
+length of · = 2
+length of * = 1
+<reference>
+https://stackoverflow.com/questions/10017328/unicode-stored-in-c-char
+https://stackoverflow.com/questions/20938359/why-do-i-get-a-number-instead-of-a-unicode-character
+https://stackoverflow.com/questions/12015571/how-to-print-unicode-character-in-c
+https://stackoverflow.com/questions/30830743/why-unicode-characters-are-not-displayed-properly-in-terminal-with-gcc#30830875
