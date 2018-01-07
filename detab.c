@@ -22,8 +22,9 @@ int main()
         if (c == '\n')
         {
             currCharCnt = 0;
+            putchar(c);
         }
-        if (c == '\t')
+        else if (c == '\t')
         {
             int replaceBlank, i;
             replaceBlank = TABSTOP - (currCharCnt % TABSTOP);
